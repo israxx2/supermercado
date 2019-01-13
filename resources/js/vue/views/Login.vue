@@ -11,13 +11,26 @@
               </v-toolbar>
               <v-card-text>
                 <v-form>
-                  <v-text-field prepend-icon="person" name="login" label="Login" type="text"></v-text-field>
+                  <v-text-field
+                    prepend-icon="person"
+                    name="login"
+                    label="Correo"
+                    type="text"
+                    v-model="login"
+                    :error-messages="loginErrors"
+                    @input="$v.login.$touch()"
+                    @blur="$v.login.$touch()"
+                  ></v-text-field>
                   <v-text-field
                     prepend-icon="lock"
                     name="password"
-                    label="Password"
-                    id="password"
+                    label="Contraseña"
                     type="password"
+                    v-model="password"
+                    counter
+                    :error-messages="passwordErrors"
+                    @input="$v.password.$touch()"
+                    @blur="$v.password.$touch()"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -34,10 +47,46 @@
 </template>
 
 <script>
+import { validationMixin } from "vuelidate";
+import { required, minLength, email } from "vuelidate/lib/validators";
+
 export default {
-  created() {},
-  data: () => ({}),
-  props: {},
-  methods: {}
+  mixins: [validationMixin],
+  validations: {
+    login: { required, email },
+    password: { required, minLength: minLength(6) }
+  },
+  data: () => ({
+    login: "",
+    password: ""
+  }),
+  computed: {
+    passwordErrors() {
+      const errors = [];
+      if (!this.$v.password.$dirty) return errors;
+      !this.$v.password.minLength &&
+        errors.push("El password debe tener mas de 6 caracteres.");
+      !this.$v.password.required && errors.push("El password es requerido.");
+      return errors;
+    },
+    loginErrors() {
+      const errors = [];
+      if (!this.$v.login.$dirty) return errors;
+      !this.$v.login.email && errors.push("El correo tiene que ser valido");
+      !this.$v.login.required && errors.push("El correo es requerido");
+      return errors;
+    }
+  },
+
+  methods: {
+    submit() {
+      this.$v.$touch();
+    },
+    clear() {
+      this.$v.$reset();
+      this.password = "";
+      this.login = "";
+    }
+  }
 };
 </script>
