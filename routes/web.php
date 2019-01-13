@@ -12,6 +12,5 @@
 */
 
 //RUTA DE INICIO
-Route::get('/', function () {
-	return view("app");
-});
+
+Route::view('/', 'app');
