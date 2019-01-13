@@ -14675,11 +14675,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     submit: function submit() {
       this.$v.$touch();
-    },
-    clear: function clear() {
-      this.$v.$reset();
-      this.password = "";
-      this.login = "";
     }
   }
 });
@@ -14793,9 +14788,14 @@ var render = function() {
                             [
                               _c("v-spacer"),
                               _vm._v(" "),
-                              _c("v-btn", { attrs: { color: "primary" } }, [
-                                _vm._v("Login")
-                              ])
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: { color: "primary" },
+                                  on: { click: _vm.submit }
+                                },
+                                [_vm._v("Login")]
+                              )
                             ],
                             1
                           )

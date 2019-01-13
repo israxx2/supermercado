@@ -36,7 +36,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn @click="submit" color="primary">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
@@ -81,11 +81,6 @@ export default {
   methods: {
     submit() {
       this.$v.$touch();
-    },
-    clear() {
-      this.$v.$reset();
-      this.password = "";
-      this.login = "";
     }
   }
 };
