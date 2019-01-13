@@ -1,25 +1,14 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic');
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons");
 
 // Variables
-@import 'variables';
+@import "variables";
 
-// Bootstrap
-@import '~bootstrap/dist/css/bootstrap.css';
-
-//todos
-@import '~font-awesome/scss/font-awesome';
-@import '~ionicons/dist/scss/ionicons';
-@import './AdminLTE.css';
-@import './_all-skins.css';
-@import './icheck/square/blue.css';
-@import './select2.css';
-@import './animate.css';
-@import './datatables.css';
-
+//vuetify
+@import "~vuetify/dist/vuetify.min.css";
+@import "~material-design-icons-iconfont/src/material-design-icons.scss";
 
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
