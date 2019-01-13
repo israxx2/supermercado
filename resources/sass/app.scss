@@ -4,11 +4,11 @@
 // Variables
 @import "variables";
 
-//vuetify
-@import "~vuetify/dist/vuetify.min.css";
-@import "~material-design-icons-iconfont/src/material-design-icons.scss";
-
 .navbar-laravel {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+@import "~vuetify/dist/vuetify.css";
+
+@import "~material-design-icons-iconfont/dist/material-design-icons.css";

@@ -1,3 +1,6 @@
 {
-    "/js/app.js": "/js/app.js"
+    "/js/app.js": "/js/app.js",
+    "/js/vuetify.js.map": "/js/vuetify.js.map",
+    "/css/material-design-icons.css.map": "/css/material-design-icons.css.map",
+    "/css/app.css": "/css/app.css"
 }

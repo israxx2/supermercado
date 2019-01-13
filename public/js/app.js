@@ -11320,7 +11320,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
-(function webpackMissingModule() { throw new Error("Cannot find module \"D:\\Users\\luism\\Documents\\GitHub\\Vue-Laravel\\supermercado\\resources\\sass\\app.scss\""); }());
+module.exports = __webpack_require__(23);
 
 
 /***/ }),
@@ -14622,8 +14622,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   created: function created() {},
@@ -14644,100 +14642,83 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-container",
-    { attrs: { fluid: "", "fill-height": "" } },
+    "v-app",
     [
       _c(
-        "v-layout",
-        { attrs: { "align-center": "", "justify-center": "" } },
+        "v-content",
         [
           _c(
-            "v-flex",
-            { attrs: { xs12: "", sm8: "", md4: "" } },
+            "v-container",
+            { attrs: { fluid: "", "fill-height": "" } },
             [
               _c(
-                "v-card",
-                { staticClass: "elevation-12" },
+                "v-layout",
+                { attrs: { "align-center": "", "justify-center": "" } },
                 [
                   _c(
-                    "v-toolbar",
-                    { attrs: { dark: "", color: "primary" } },
+                    "v-flex",
+                    { attrs: { xs12: "", sm8: "", md4: "" } },
                     [
-                      _c("v-toolbar-title", [_vm._v("Login form")]),
-                      _vm._v(" "),
-                      _c("v-spacer"),
-                      _vm._v(" "),
                       _c(
-                        "v-tooltip",
-                        { attrs: { bottom: "" } },
+                        "v-card",
+                        { staticClass: "elevation-12" },
                         [
                           _c(
-                            "v-btn",
-                            {
-                              attrs: {
-                                slot: "activator",
-                                icon: "",
-                                large: "",
-                                href: _vm.source,
-                                target: "_blank"
-                              },
-                              slot: "activator"
-                            },
+                            "v-toolbar",
+                            { attrs: { dark: "", color: "primary" } },
                             [
-                              _c("v-icon", { attrs: { large: "" } }, [
-                                _vm._v("code")
-                              ])
+                              _c("v-toolbar-title", [_vm._v("Login form")]),
+                              _vm._v(" "),
+                              _c("v-spacer")
                             ],
                             1
                           ),
                           _vm._v(" "),
-                          _c("span", [_vm._v("Source")])
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-text",
-                    [
-                      _c(
-                        "v-form",
-                        [
-                          _c("v-text-field", {
-                            attrs: {
-                              "prepend-icon": "person",
-                              name: "login",
-                              label: "Login",
-                              type: "text"
-                            }
-                          }),
+                          _c(
+                            "v-card-text",
+                            [
+                              _c(
+                                "v-form",
+                                [
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      "prepend-icon": "person",
+                                      name: "login",
+                                      label: "Login",
+                                      type: "text"
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c("v-text-field", {
+                                    attrs: {
+                                      "prepend-icon": "lock",
+                                      name: "password",
+                                      label: "Password",
+                                      id: "password",
+                                      type: "password"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          ),
                           _vm._v(" "),
-                          _c("v-text-field", {
-                            attrs: {
-                              "prepend-icon": "lock",
-                              name: "password",
-                              label: "Password",
-                              id: "password",
-                              type: "password"
-                            }
-                          })
+                          _c(
+                            "v-card-actions",
+                            [
+                              _c("v-spacer"),
+                              _vm._v(" "),
+                              _c("v-btn", { attrs: { color: "primary" } }, [
+                                _vm._v("Login")
+                              ])
+                            ],
+                            1
+                          )
                         ],
                         1
                       )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-card-actions",
-                    [
-                      _c("v-spacer"),
-                      _vm._v(" "),
-                      _c("v-btn", { attrs: { color: "primary" } }, [
-                        _vm._v("Login")
-                      ])
                     ],
                     1
                   )
@@ -39975,6 +39956,12 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_vue__;
 /******/ })["default"];
 });
 //# sourceMappingURL=vuetify.js.map
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
