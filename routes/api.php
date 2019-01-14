@@ -21,6 +21,10 @@ Route::get('user/getdata', function (Request $request){
 	} else return [];
 })->name('api.user.getdata');
 
+Route::post('/login', "LoginController@singIn");
+
+Route::post('/logout', "LoginController@singOut");
+
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

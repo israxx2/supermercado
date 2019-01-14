@@ -13,13 +13,14 @@
                 <v-form>
                   <v-text-field
                     prepend-icon="person"
-                    name="login"
-                    label="Correo"
+                    name="rut"
+                    label="Rut"
                     type="text"
-                    v-model="login"
-                    :error-messages="loginErrors"
-                    @input="$v.login.$touch()"
-                    @blur="$v.login.$touch()"
+                    mask="##.###.###-n"
+                    v-model="rut"
+                    :error-messages="rutErrors"
+                    @input="$v.rut.$touch()"
+                    @blur="$v.rut.$touch()"
                   ></v-text-field>
                   <v-text-field
                     prepend-icon="lock"
@@ -47,17 +48,18 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { validationMixin } from "vuelidate";
-import { required, minLength, email } from "vuelidate/lib/validators";
+import { required, minLength } from "vuelidate/lib/validators";
 
 export default {
   mixins: [validationMixin],
   validations: {
-    login: { required, email },
+    rut: { required },
     password: { required, minLength: minLength(6) }
   },
   data: () => ({
-    login: "",
+    rut: "",
     password: ""
   }),
   computed: {
@@ -69,18 +71,25 @@ export default {
       !this.$v.password.required && errors.push("El password es requerido.");
       return errors;
     },
-    loginErrors() {
+    rutErrors() {
       const errors = [];
-      if (!this.$v.login.$dirty) return errors;
-      !this.$v.login.email && errors.push("El correo tiene que ser valido");
-      !this.$v.login.required && errors.push("El correo es requerido");
+      if (!this.$v.rut.$dirty) return errors;
+      !this.$v.rut.required && errors.push("El correo es requerido");
       return errors;
     }
   },
-
   methods: {
+    ...mapActions({
+      login: "login"
+    }),
     submit() {
       this.$v.$touch();
+      if (!this.$v.$invalid) {
+        this.login({
+          rut: this.rut,
+          password: this.password
+        });
+      }
     }
   }
 };
