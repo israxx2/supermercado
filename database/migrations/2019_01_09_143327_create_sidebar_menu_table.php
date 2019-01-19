@@ -20,7 +20,7 @@ class CreateSidebarMenuTable extends Migration
             $table->integer('id_padre')->unsigned()->default(0);
             $table->integer('id_rol')->unsigned();
             $table->integer('orden')->default(0);
-            $table->string('icono');
+            $table->string('icono')->nullable();
             $table->integer('por')->unsigned()->nullable();
             $table->softDeletes();
             $table->timestamps();

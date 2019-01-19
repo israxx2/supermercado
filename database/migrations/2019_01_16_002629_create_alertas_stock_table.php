@@ -17,8 +17,12 @@ class CreateAlertasStockTable extends Migration
             $table->increments('id');
             $table->integer('id_producto')->unsigned();
             $table->integer('cantidad');
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

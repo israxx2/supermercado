@@ -20,15 +20,18 @@ class CreateProductoCompraTable extends Migration
             $table->integer('cantidad');
             $table->float('precio_bruto', 8, 2);  //sin iva
             $table->float('iva', 8, 2);
-            $table->float('d1', 3, 2);
-            $table->float('d2', 3, 2);
-            $table->float('d3', 3, 2);
-            $table->float('precio_neto', 8, 2);     //con iva
+            $table->float('d1', 3, 2)->default(0);
+            $table->float('d2', 3, 2)->default(0);
+            $table->float('d3', 3, 2)->default(0);
+            $table->float('total_dcto', 3, 2)->default(0);
+            $table->float('precio_neto', 8, 2);     //con iva + descuentos
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
             $table->foreign('id_compra')->references('id')->on('compras')->onDelete('cascade');
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

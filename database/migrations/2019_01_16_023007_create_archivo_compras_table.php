@@ -17,12 +17,12 @@ class CreateArchivoComprasTable extends Migration
             $table->increments('id');
             $table->integer('id_compra')->unsigned();
             $table->string('nombre_original');
-            $table->string('nombre_copia');
-            $table->string('ubicacion');
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('id_compra')->references('id')->on('compras')->onDelete('cascade');
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

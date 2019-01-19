@@ -16,8 +16,12 @@ class CreateCondicionesPagoTable extends Migration
         Schema::create('condiciones_pago', function (Blueprint $table) {
             $table->increments('id');
             $table->string('condicion');
+            $table->string('descripcion')->nullable();
+            $table->integer('por');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

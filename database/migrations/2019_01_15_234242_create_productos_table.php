@@ -16,18 +16,20 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_familia')->unsigned();
-            $table->string('codigo');
+            $table->integer('id_proveedor')->unsigned();
+            $table->integer('stock');
+            $table->string('codigo')->nullable();
             $table->string('nombre');
-            $table->float('precio_bruto', 8, 2);  //sin iva
-            $table->float('iva', 8, 2);
-            $table->float('precio_neto', 8, 2);     //con iva
-            $table->float('costes_adicionales', 8, 2);
-            $table->float('precio_total', 8, 2);
-            $table->boolean('oferta');
+            $table->string('imagen')->default('default.jpg');
+            $table->string('descripcion')->nullable();
+            $table->boolean('autorizado')->default(1);
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('id_familia')->references('id')->on('familias')->onDelete('cascade');
+            $table->foreign('id_proveedor')->references('id')->on('proveedores')->onDelete('cascade');
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

@@ -16,8 +16,11 @@ class CreateCiudadesTable extends Migration
         Schema::create('ciudades', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->integer('por');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

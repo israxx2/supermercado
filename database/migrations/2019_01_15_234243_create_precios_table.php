@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOfertaProductoTable extends Migration
+class CreatePreciosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,16 @@ class CreateOfertaProductoTable extends Migration
      */
     public function up()
     {
-        Schema::create('oferta_producto', function (Blueprint $table) {
+        Schema::create('precios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_producto')->unsigned();
-            $table->integer('id_oferta')->unsigned();
+            $table->integer('id_oferta')->unsigned()->nullable();
+            $table->float('precio_bruto', 8, 2);  //sin iva
+            $table->float('iva', 8, 2);
+            $table->float('costes_adicionales', 8, 2)->nullable();
+            $table->float('precio_neto', 8, 2);     //con iva
+            $table->boolean('actual')->default(1);
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
@@ -32,6 +38,6 @@ class CreateOfertaProductoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oferta_producto');
+        Schema::dropIfExists('precios');
     }
 }

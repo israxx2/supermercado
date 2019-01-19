@@ -17,11 +17,19 @@ class CreateProductoVentaTable extends Migration
             $table->increments('id');
             $table->integer('id_producto')->unsigned();
             $table->integer('id_venta')->unsigned();
+            $table->integer('cantidad');
+            $table->float('precio_bruto', 8, 2);     //sin iva
+            $table->float('iva', 8, 2);
+            $table->float('descuento', 8, 2)->default(0);
+            $table->float('precio_neto', 8, 2);     //con iva y descuentos
+
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('id_producto')->references('id')->on('productos')->onDelete('cascade');
             $table->foreign('id_venta')->references('id')->on('ventas')->onDelete('cascade');
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 

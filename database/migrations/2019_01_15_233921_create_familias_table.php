@@ -16,8 +16,12 @@ class CreateFamiliasTable extends Migration
         Schema::create('familias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
+            $table->string('descripcion')->nullable();
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('por')->references('id')->on('users');
         });
     }
 
