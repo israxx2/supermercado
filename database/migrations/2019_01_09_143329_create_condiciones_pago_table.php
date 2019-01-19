@@ -17,7 +17,7 @@ class CreateCondicionesPagoTable extends Migration
             $table->increments('id');
             $table->string('condicion');
             $table->string('descripcion')->nullable();
-            $table->integer('por');
+            $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
 
