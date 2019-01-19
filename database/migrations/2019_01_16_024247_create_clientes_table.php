@@ -23,7 +23,7 @@ class CreateClientesTable extends Migration
             $table->string('num_fax')->nullable();
             $table->string('direccion')->nullable();
             $table->string('id_ciudad')->nullable();
-            $table->string('observacion');
+            $table->string('observacion')->nullable();
             $table->integer('por')->unsigned();
             $table->softDeletes();
             $table->timestamps();
