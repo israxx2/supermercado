@@ -13,7 +13,7 @@ class UsuarioController extends Controller
         return User::all();
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         $usuario = new User($request->all());
         return ['resultado' => $usuario->save()];

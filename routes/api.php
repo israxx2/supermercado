@@ -25,6 +25,7 @@ Route::post('/login', "LoginController@singIn");
 
 Route::post('/logout', "LoginController@singOut");
 
+Route::resource('/users', "UsuarioController");
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     return $request->user();
 // });

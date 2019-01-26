@@ -16,7 +16,6 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_familia')->unsigned();
-            $table->integer('id_proveedor')->unsigned();
             $table->integer('stock');
             $table->string('codigo')->nullable();
             $table->string('nombre');
@@ -28,7 +27,6 @@ class CreateProductosTable extends Migration
             $table->timestamps();
 
             $table->foreign('id_familia')->references('id')->on('familias')->onDelete('cascade');
-            $table->foreign('id_proveedor')->references('id')->on('proveedores')->onDelete('cascade');
             $table->foreign('por')->references('id')->on('users');
         });
     }

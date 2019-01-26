@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             'apellido' => 'Gonzalez Troncoso',
             'email' => 'admin1@ucm.cl',
             'rut' => '19105900k',
+            'por' => 1,
             'id_rol' => 1,
             'password' => bcrypt('asdqwe123'),
         ]);
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
             'apellido' => 'Gonzalez Gajardo',
             'email' => 'admin2@ucm.cl',
             'rut' => '123456789',
+            'por' => 1,
             'id_rol' => 2,
             'password' => bcrypt('asdqwe123'),
         ]);
